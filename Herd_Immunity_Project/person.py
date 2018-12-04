@@ -1,6 +1,8 @@
 import random
 import pytest
+from virus import Virus
 # TODO: Import the virus class
+
 
 
 class Person(object):
@@ -15,11 +17,18 @@ class Person(object):
         self.infection. Otherwise, self.infection should be set to None.
         '''
         self._id = None
-        self.is_alive = True # Boolean
-        self.is_vaccinated = None # Boolean
-        self.infection = None # Virus or None
+        self.is_alive = True  # Boolean
+        self.is_vaccinated = None  # Boolean
+        self.infection = None  # Virus or None
 
     def did_survive_infection(self):
+        random_number = random.randint(0,1)
+
+        if (random_number < self.infection.mortality_rate):
+            return False
+        else:
+            self.is_vaccinated = True
+
         ''' Generate a random number and compare to virus's mortality_rate.
         If random number is smaller, person dies from the disease.
         If Person survives, they become vaccinated and they have no infection.
@@ -28,8 +37,10 @@ class Person(object):
         # TODO:  Finish this method. Should return a Boolean
         pass
 
-    
+
 ''' These are simple tests to ensure that you are instantiating your Person class correctly. '''
+
+
 def test_vacc_person_instantiation():
     # create some people to test if our init method works as expected
     person = Person(1, True)

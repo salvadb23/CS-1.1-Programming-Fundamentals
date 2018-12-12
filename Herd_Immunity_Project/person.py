@@ -28,6 +28,7 @@ class Person(object):
             return False
         else:
             self.is_vaccinated = True
+            return True
 
         ''' Generate a random number and compare to virus's mortality_rate.
         If random number is smaller, person dies from the disease.
@@ -35,7 +36,6 @@ class Person(object):
         '''
         # Only called if infection attribute is not None.
         # TODO:  Finish this method. Should return a Boolean
-        pass
 
 
 ''' These are simple tests to ensure that you are instantiating your Person class correctly. '''
